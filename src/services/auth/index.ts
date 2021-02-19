@@ -87,10 +87,11 @@ authRouter.post(
   "/logout",
   async function (req: Request, res: Response, next: NextFunction) {
     try {
-      res.clearCookie("accessToken");
-      res.clearCookie("refreshToken");
-      res.clearCookie("userToken");
-      res.clearCookie("userRToken");
+      res.clearCookie("accessToken", { httpOnly: true });
+      res.clearCookie("refreshToken", { httpOnly: true });
+      res.clearCookie("userToken", { httpOnly: true });
+      res.clearCookie("userRToken", { httpOnly: true });
+      res.send("logout");
     } catch (err) {
       console.log(err);
     }
