@@ -8,7 +8,9 @@ import cookieParser from "cookie-parser";
 const server = express();
 const PORT = process.env.PORT || 3001;
 import "./Lib/auth/strategies/spotify";
-const whitelist = ["http://localhost:3000"];
+const whitelist = process.env.FE_URL;
+
+
 
 //MIDDLEWARES
 server.use(express.json());
